@@ -1,1 +1,4 @@
-[]
+[
+  { "nombre": "Giuliano", "dni": "40366371" },
+  { "nombre": "Pepe", "dni": "123" }
+]
