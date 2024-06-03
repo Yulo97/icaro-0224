@@ -4,7 +4,7 @@ import inquirer from "inquirer";
 const alumnos = JSON.parse(fs.readFileSync("./alumnos.json", "utf-8"));
 
 export const alumnosMain = async () => {
-  const input = await inquirer.prompt([
+  const { accion } = await inquirer.prompt([
     {
       name: "accion",
       message: "¿Qué quieres hacer?",
@@ -14,7 +14,7 @@ export const alumnosMain = async () => {
   ]);
 
   // AGREGAR ALUMNO
-  if (input.accion === "Agregar") {
+  if (accion === "Agregar") {
     const { nombre, dni } = await inquirer.prompt([
       {
         name: "nombre",
@@ -36,7 +36,7 @@ export const alumnosMain = async () => {
     console.log("Alumno agregado:", alumno);
 
     //ELIMINAR ALUMNO
-  } else if (input.accion === "Eliminar") {
+  } else if (accion === "Eliminar") {
     const { dni } = await inquirer.prompt([
       {
         name: "dni",
@@ -51,7 +51,7 @@ export const alumnosMain = async () => {
     fs.writeFileSync("./alumnos.json", JSON.stringify(alumnos));
 
     // ACTUALIZAR ALUMNO
-  } else if (input.accion === "Actualizar") {
+  } else if (accion === "Actualizar") {
     const { dni } = await inquirer.prompt([
       {
         name: "dni",
@@ -65,7 +65,6 @@ export const alumnosMain = async () => {
       console.log("Alumno no encontrado");
       return;
     }
-
     const { nombre } = await inquirer.prompt([
       {
         name: "nombre",
@@ -78,9 +77,28 @@ export const alumnosMain = async () => {
     console.log("Alumno actualizado:", alumno);
 
     // VER TODOS LOS ALUMNOS
-  } else if (input.accion === "Leer") {
+  } else if (accion === "Leer") {
     alumnos.forEach((element) => {
       console.log(element);
     });
   }
+};
+
+export const elijeTuPersonaje = async () => {
+  const input = await inquirer.prompt([
+    {
+      name: "personaje",
+      message: "Personaje Animado",
+    },
+    {
+      name: "poder",
+      message: "Escribe su poder del 1 a 10",
+    },
+    {
+      name: "sexo",
+      type: "list",
+      choices: ["Hombre", "Mujer"],
+      message: "Elige su sexo",
+    },
+  ]);
 };

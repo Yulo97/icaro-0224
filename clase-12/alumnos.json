@@ -1,4 +1,6 @@
 [
   { "nombre": "Giuliano", "dni": "40366371" },
-  { "nombre": "Pepe", "dni": "123" }
+  { "nombre": "Ramiro", "dni": "123" },
+  { "nombre": "Josefina", "dni": "123456" },
+  { "nombre": "Rick Grames", "dni": "456" }
 ]
