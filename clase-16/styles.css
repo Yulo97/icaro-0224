@@ -1,0 +1,132 @@
+* {
+    border: 1px solid black;
+    padding: 5px;
+    /* padding: 0; */
+    /* margin: 0; */
+}
+
+h1 {
+    background-color: lightblue;
+    margin : 20px;
+    padding: 20px;
+    text-transform: lowercase !important; 
+    
+    /* border */
+    border-width: 50px;
+    border-style:inset;
+    border-color: blue;
+    
+    
+    border: 20px inset blue;
+    }
+    
+    /* Este selector pisara el valor de text-transform de arriba */
+    h1 {
+        text-transform: uppercase;
+    }
+
+
+.lista {
+    background-color: aquamarine;
+}
+
+.lista:hover{
+    background-color: aqua;
+    font-size: 25px;
+    cursor: pointer;
+    padding-left: 25px;
+}
+
+.menu {
+    border-width: 5px;
+    border-style:dotted;
+    border-color: blue;
+}
+
+#titulo2{
+    background-color: beige;
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+[id] {
+    text-decoration: underline;
+   }
+
+a {
+    text-decoration: none;
+}
+
+h3.green#id2 {
+    background-color: greenyellow;
+}
+
+h3 > .red {
+    background-color: rgb(203, 12, 12);
+}
+
+
+div {
+    background-color: beige;
+}
+
+div > .subtitulo {
+    background-color:cadetblue;
+    padding: 20px;
+}
+  
+/* .ol1 {
+    background-color: aliceblue;
+}
+
+.ol2 {
+    background-color: aliceblue;
+}
+
+.ol3 {
+    background-color: aliceblue;
+} */
+
+.ol1, .ol2, .ol3, a{
+    background-color: aliceblue;
+}
+
+div h6 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+    margin: 0;
+}
+
+div h6 span {
+    background-color: red;
+}
+
+.boton, .boton2{
+    padding: 10px;
+    border-radius: 25px;
+    background-color: brown;
+    color: white;
+    border: 2px solid white;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+
+.boton:hover{
+    cursor: pointer;
+}
+    
+.boton2 {
+    bottom: 100px;
+}
+
+.fixed-image {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
