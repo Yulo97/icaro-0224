@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body class="body" >
+    <div class="row" style="border: 1px solid black;">
+      <div>A1</div>
+      <div>B1</div>
+      <div>C1</div>
+    </div>
+    <div class="row" style="border: 1px solid black;">
+      <div>A2</div>
+      <div>B2</div>
+      <div>C2</div>
+    </div>
+  </body>
+
+  <style>
+
+    .body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: beige;
+    }
+
+
+
+    .row {
+        height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items:center;
+      min-width: 50vw;
+    }
+  </style>
+</html>
