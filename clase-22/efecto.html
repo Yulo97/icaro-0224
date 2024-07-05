@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Effect with CSS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="face front">Ignacio Ezequiel Rodriguez</div>
+        <div class="face back">Ignacio Ezequiel Rodriguez</div>
+        <div class="face left">Ignacio Ezequiel Rodriguez</div>
+        <div class="face right">Ignacio Ezequiel Rodriguez</div>
+        <div class="face top">Ignacio Ezequiel Rodriguez</div>
+        <div class="face bottom">Ignacio Ezequiel Rodriguez</div>
+      </div>
+    </div>
+  </body>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      perspective: 1000px;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotate 10s infinite linear;
+    }
+
+    .face {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .front {
+      transform: rotateY(0deg) translateZ(100px);
+    }
+    .back {
+      transform: rotateY(180deg) translateZ(100px);
+    }
+    .left {
+      transform: rotateY(-90deg) translateZ(100px);
+    }
+    .right {
+      transform: rotateY(90deg) translateZ(100px);
+    }
+    .top {
+      transform: rotateX(90deg) translateZ(100px);
+    }
+    .bottom {
+      transform: rotateX(-90deg) translateZ(100px);
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotateX(0) rotateY(0);
+      }
+      to {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+    }
+  </style>
+</html>

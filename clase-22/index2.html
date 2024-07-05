@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cuadrado"></div>
+      <div class="cuadrado"></div>
+      <div class="cuadrado"></div>
+      <div class="cuadrado"></div>
+      <div class="cuadrado"></div>
+    </div>
+
+    <div>
+      <div class="circulo"></div>
+      <div class="circulo"></div>
+      <div class="circulo"></div>
+      <div class="circulo"></div>
+      <div class="circulo"></div>
+      <div class="circulo"></div>
+    </div>
+  </body>
+
+  <div class="fondo">
+    <div class="barra"></div>
+  </div>
+
+  <h1>Este es el Titulo</h1>
+
+  <style>
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+      animation: efectoTitulo 2s infinite ease-in alternate;
+    }
+
+    .fondo {
+      background-color: rgb(215, 215, 215);
+      width: 600px;
+      border-radius: 25px;
+    }
+    .barra {
+      width: 50px;
+      height: 50px;
+      background-color: green;
+      animation: cargaDeBarra 4s infinite ease-in alternate;
+      border-radius: 25px;
+    }
+
+    .circulo {
+      width: 50px;
+      height: 50px;
+      background-color: blueviolet;
+      border-radius: 50%;
+      margin: 30px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cuadrado {
+      margin: 25px;
+      background-color: red;
+      width: 150px;
+      height: 150px;
+      transition: all 1s ease;
+    }
+
+    .cuadrado:first-child {
+      transition: all 250ms ease;
+    }
+
+    .cuadrado:first-child:hover {
+      scale: 1.2;
+    }
+
+    .cuadrado:nth-child(2):hover {
+      background-color: blue;
+    }
+
+    .cuadrado:nth-child(3):hover {
+      translate: 0 50px; /* X, Y */
+    }
+
+    .cuadrado:nth-child(4):hover {
+      border-radius: 50%;
+    }
+
+    .cuadrado:last-child:hover {
+      rotate: 160deg;
+    }
+
+    .circulo:first-child {
+      animation: move 2s infinite ease-in alternate;
+    }
+
+    .circulo:nth-child(2) {
+      animation: move 2s infinite linear alternate;
+    }
+
+    .circulo:nth-child(3) {
+      animation: move 2s infinite ease-out alternate;
+    }
+
+    .circulo:nth-child(4) {
+      animation: move 2s infinite ease-in-out alternate;
+    }
+
+    /* 1 seg de delay */
+    .circulo:nth-child(5) {
+      animation: move 2s infinite 1s ease-in alternate;
+    }
+
+    /* Se ejecuta 2 veces */
+    .circulo:nth-child(6) {
+      animation: move 2s infinite ease-in alternate-reverse;
+    }
+
+    @keyframes move {
+      0% {
+        transform: translate(0, 0); /* X, Y */
+      }
+
+      50% {
+        border-radius: 0px;
+      }
+
+      100% {
+        transform: translate(600px, 0); /* X, Y */
+      }
+    }
+
+    @keyframes efectoTitulo {
+      from {
+        scale: 1;
+      }
+
+      to {
+        scale: 2;
+        translate: 20px -250px;
+      }
+    }
+
+    @keyframes cargaDeBarra {
+      from {
+      }
+      to {
+        width: 600px;
+      }
+    }
+  </style>
+</html>
