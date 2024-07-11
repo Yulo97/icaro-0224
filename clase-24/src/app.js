@@ -103,8 +103,6 @@ const productos = [
 
 const port = 3000;
 
-let contador = 0;
-
 app.listen(port, () => console.log("El SERVIDOR esta escuchando en el puerto " + port));
 
 app.get("/", (req, res) => {
