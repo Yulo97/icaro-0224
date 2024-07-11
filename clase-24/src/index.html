@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hola Mundo!</h1>
+
+    <img id="image" src="https://picsum.photos/600/600" alt="" />
+
+    <div class="contenedor">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quas explicabo animi,
+        repellendus nam aspernatur!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quas explicabo animi,
+        repellendus nam aspernatur!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quas explicabo animi,
+        repellendus nam aspernatur!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quas explicabo animi,
+        repellendus nam aspernatur!
+      </p>
+    </div>
+
+    <button class="miButton">Click Aqui!</button>
+  </body>
+
+  <style>
+    .contenedor {
+    }
+
+    .contenedor p {
+      background-color: bisque;
+      /* display: inline; */
+    }
+
+    .miButton {
+      width: 200px;
+      height: 75px;
+      border-radius: 0;
+      font-size: 25px;
+      background-color: rgb(12, 130, 31);
+      border: none;
+    }
+
+    .miButton:hover {
+      background-color: rgb(16, 162, 40);
+      cursor: pointer;
+      color: white;
+    }
+
+    @media (max-width: 500px) {
+      .contenedor p {
+        background-color: rgb(0, 8, 255);
+        display: block;
+      }
+
+      #image {
+        width: 200px;
+        height: 200px;
+        display: none;
+      }
+
+      .miButton {
+        width: 150px;
+        height: 50px;
+        font-size: 18px;
+      }
+    }
+  </style>
+</html>
