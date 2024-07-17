@@ -1,0 +1,21 @@
+body {
+  background-color: red;
+}
+
+/* COMENTARIO */
+
+.footer{
+  display: flex;
+  background-color: blueviolet;
+  justify-content: space-around;
+}
+
+.footer li  {
+  list-style: none;
+}
+
+.cabecera {
+  display: flex;
+  background-color: rgb(30, 185, 74);
+  justify-content: space-around;
+}
