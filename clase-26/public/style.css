@@ -1,0 +1,16 @@
+.body-producto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    background-color: beige;
+
+}
+
+.card-container{
+    border: 1px black solid;
+    padding: 40px;
+    border-radius: 20px;
+}
