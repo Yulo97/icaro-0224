@@ -12,7 +12,6 @@ const PORT = 3000;
 app.listen(PORT, () => console.log(`Servido levantado en puerto ${PORT}`));
 
 // Middlewares
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
@@ -31,4 +30,4 @@ app.set("view engine", "ejs");
 
 // Router
 app.use("/", routerViews);
-app.use("/user", routerUser);
+app.use("/user", cors(), routerUser);

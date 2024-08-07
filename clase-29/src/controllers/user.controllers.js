@@ -10,8 +10,7 @@ const loginUser = (req, res) => {
       // res.cookie("usuario", usuario.user, { httpOnly: true });
       req.session.username = body.user;
 
-      // res.status(200).json({ status: "success", message: "Se realizo el logueo correctamente" });
-      res.redirect("/views/productos");
+      res.status(200).json({ status: "success", message: "Se realizo el logueo correctamente" });
     } else {
       res.status(400).json({ status: "failure", message: "No existe el usuario" });
     }
