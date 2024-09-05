@@ -1,72 +1,88 @@
-// ¡Nuevo! Combinaciones de teclas … Las combinaciones de teclas de Drive se han actualizado para que puedas navegar escribiendo las primeras letras
+let body = document.querySelector("body");
+let moveButton = document.getElementById("move");
+let colorButton = document.getElementById("color");
+let floatButton = document.getElementById("float");
+let astro = document.querySelector("#astronauta");
 
-const astronauta = document.getElementById("astronauta");
-const fondo = document.getElementById("fondo");
-const moveButton = document.getElementById("move");
-const colorButton = document.getElementById("color");
-const floatButton = document.getElementById("float");
+let x = 50;
+let y = 50;
+let scale = 1;
 
-function moverDerecha() {
-  if (astronauta.style.marginLeft) {
-    let nuevaPosicion = +astronauta.style.marginLeft.substring(
-      0,
-      astronauta.style.marginLeft.length - 2
-    );
-    astronauta.style.marginLeft = +nuevaPosicion + 700 + "px";
-  } else {
-    astronauta.style.marginLeft = astronauta.style.marginLeft + "700px";
-  }
-}
+document.addEventListener("keypress", (event) => {
+  switch (event.key) {
+    case "a":
+      moveAstro(10);
+      break;
+    case "w":
+      moveAstro(null, -10);
+      break;
+    case "s":
+      moveAstro(null, 10);
+      break;
+    case "d":
+      moveAstro(-10);
+      break;
+    case "+":
+      scaleAstro(0.2);
+      break;
+    case "-":
+      scaleAstro(-0.2);
+      break;
+    case "Enter":
+      alert("Hello Space");
+      break;
+    case "r":
+      moveButton.removeEventListener("click", handleClickMove);
+      break;
 
-function achicarAstronauta() {
-  astronauta.style.transform = "scale(0.6)";
-}
-
-function agrandarAstronauta() {
-  astronauta.style.transform = "scale(1.2)";
-}
-
-function reiniciarPosicionAstronauta() {
-  astronauta.style.marginLeft = "0px";
-  astronauta.style.marginTop = "35vh";
-}
-
-function astronautaBordeSuperior() {
-  astronauta.style.marginTop = "10px";
-}
-
-function cambiarFondo() {
-  fondo.style.backgroundColor = "#420a8d";
-}
-
-function desplazarAstronauta() {
-  moverDerecha();
-  achicarAstronauta();
-}
-
-function volverPosicionInicial() {
-  reiniciarPosicionAstronauta();
-  agrandarAstronauta();
-}
-
-document.addEventListener("keydown", function (event) {
-  if (event.code === "Space") {
-    desplazarAstronauta();
-  } else if (event.code === "Enter") {
-    alert("Hello Space!");
-  } else if (event.code === "KeyR") {
-    moveButton.disabled = "true";
+    default:
+      break;
   }
 });
 
-moveButton.addEventListener("click", function (event) {
-  volverPosicionInicial();
+const moveAstro = (ejeX = 0, ejeY = 0) => {
+  x += ejeX;
+  y += ejeY;
+
+  astro.style.right = x + "%";
+  astro.style.top = y + "%";
+};
+
+const scaleAstro = (num = 0) => {
+  scale += num;
+  astro.style.scale = scale;
+};
+
+const handleClickMove = () => {
+  x = 50;
+  y = 50;
+  scale = 1;
+
+  scaleAstro();
+  moveAstro();
+};
+
+moveButton.addEventListener("click", handleClickMove);
+
+colorButton.addEventListener("click", () => {
+  body.style.backgroundColor = getRandomColor();
 });
 
-colorButton.addEventListener("click", function () {
-  cambiarFondo();
+floatButton.addEventListener("click", () => {
+  x = 50;
+  y = 10;
+  scale = 1;
+
+  moveAstro();
+  scaleAstro();
 });
 
-floatButton.addEventListener("click", function () {
-  astronautaBordeSuperior();
-});
+function getRandomColor() {
+  // Genera un número aleatorio entre 0 y 16777215 (0xFFFFFF)
+  const randomColor = Math.floor(Math.random() * 16777215);
+
+  // Convierte el número a un string hexadecimal y le agrega el '#'
+  const color = `#${randomColor.toString(16).padStart(6, "0")}`;
+
+  return color;
+}
