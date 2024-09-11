@@ -1,0 +1,123 @@
+<form action="" id="formulario">
+  <div>
+    <label for="user">Usuario: </label>
+    <input type="text" name="user" id="user" />
+    <span id="userError"></span>
+  </div>
+  <div>
+    <label for="pass">Password: </label>
+    <input type="password" name="pass" id="pass" />
+    <span id="passError"></span>
+  </div>
+  <div>
+    <select name="provincia" id="provincia">
+      <option value="">Selecciona una Provincia</option>
+      <option value="santa fe">Santa Fe</option>
+      <option value="cordoba">Cordoba</option>
+      <option value="entre rios">Entre Rios</option>
+    </select>
+    <span id="pronvinceError"></span>
+  </div>
+  <div>
+    <input type="submit" value="Login" />
+    <input type="reset" value="Reset" />
+  </div>
+</form>
+
+<script>
+  const form = document.querySelector("#formulario");
+  const userInput = document.getElementById("user");
+  const spanErrorUser = document.getElementById("userError");
+
+  const passInput = document.getElementById("pass");
+  const passErrorUser = document.getElementById("passError");
+
+  userInput.addEventListener("keyup", (event) => {
+    if (userInput.value.length <= 4) {
+      spanErrorUser.style.display = "inline";
+      spanErrorUser.innerText = "El usuario debe ser mas largo";
+      userInput.style.border = "1px solid red";
+    } else {
+      spanErrorUser.style.display = "none";
+      userInput.style.border = "1px solid green";
+    }
+  });
+
+  passInput.addEventListener("keyup", (event) => {
+    if (passInput.value.length <= 4) {
+      passErrorUser.style.display = "inline";
+      passErrorUser.innerText = "El usuario debe ser mas largo";
+      passInput.style.border = "1px solid red";
+    } else {
+      passErrorUser.style.display = "none";
+      passInput.style.border = "1px solid green";
+    }
+  });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const user = form.elements.user.value;
+    const pass = form.elements.pass.value;
+    const province = form.elements.provincia.value;
+
+    // Validacion de Usuario
+    if (!user) {
+      const userError = document.getElementById("userError");
+
+      userError.innerText = "El usuario no puede estar vacio";
+      userError.style.display = "inline";
+
+      return;
+    }
+
+    // Validacion de contraseña
+    if (!pass) {
+      const passError = document.getElementById("passError");
+
+      //   inputUser.style.borderColor = "#FF0000";
+      passError.innerText = "La contraseña no puede estar vacia";
+      passError.style.display = "inline";
+
+      return;
+    }
+
+    // Validacion del largo de la contraseña
+    if (pass.length <= 5) {
+      return console.log(
+        `La contrañsa debe tener un largo de 6 caracteres. Actualmente tiene ${pass.length}`
+      );
+    }
+
+    // Validacion de Provincia
+    if (province == "") {
+      const pronvinceError = document.getElementById("pronvinceError");
+
+      pronvinceError.innerText = "La provincia no puede estar vacia";
+      pronvinceError.style.display = "inline";
+
+      return;
+    }
+
+    console.log("Envio de Formulario Exitoso!");
+  });
+</script>
+
+<style>
+  #userError,
+  #passError,
+  #pronvinceError {
+    color: red;
+    font-size: 11px;
+    display: none;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  input {
+    border-radius: 1px;
+    border: 1px solid gray;
+  }
+</style>
