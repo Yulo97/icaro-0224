@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+
+  <script>
+    const celular = {
+      model: "Iphone 16",
+      price: 699,
+      ram: 8,
+    };
+
+    const frase = "Tres tristes tigres comen trigo en un trigal";
+
+    // Guardar datos en el localStorage
+    localStorage.setItem("trabalenguas", frase);
+
+    localStorage.setItem("edad", 27);
+
+    localStorage.setItem("nombre", "Giuliano");
+
+    localStorage.setItem("celular", JSON.stringify(celular));
+
+    // Obtener datos del localStorage
+    const celu = JSON.parse(localStorage.getItem("celular"));
+
+    const nombre = localStorage.getItem("nombre");
+
+    // Borrar del localStorage
+    localStorage.removeItem("nombre");
+
+    // Setear y obtener datos en sessionStorage
+    sessionStorage.setItem("nombre", "Alberto");
+    sessionStorage.getItem("nombre");
+  </script>
+</html>

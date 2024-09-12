@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="saludo">Hola Nombre</h1>
+
+    <button id="btnEliminarNombre">Eliminar nombre</button>
+  </body>
+</html>
+
+<script>
+  function preguntarNombre() {
+    const nombreStorage = localStorage.getItem("nombre");
+
+    if (nombreStorage) {
+      document.getElementById("saludo").innerHTML = `Hola ${nombreStorage}`;
+    } else {
+      const nombre = prompt("Escribe tu nombre");
+
+      localStorage.setItem("nombre", nombre);
+
+      document.getElementById("saludo").innerHTML = `Hola ${nombre}`;
+    }
+  }
+
+  preguntarNombre();
+
+  const btnEliminarNombre = document.getElementById("btnEliminarNombre");
+
+  btnEliminarNombre.addEventListener("click", () => {
+    localStorage.removeItem("nombre");
+  });
+</script>
