@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form">
+      <label for="fullname">¿Cual es tu nombre completo?</label>
+      <input type="text" id="fullname" placeholder="Nombre y apellido" required />
+      <label for="age">¿Cual es tu edad?</label>
+      <input type="number" id="age" placeholder="Edad" required />
+      <button>Enviar</button>
+    </form>
+    <button id="simpson">Frase Simpson</button>
+    <button id="fraseStorage">Mostrar frase Storage</button>
+    <script>
+      const btnFraseSimpsons = document.getElementById("fraseStorage");
+
+      btnFraseSimpsons.addEventListener("click", async () => {
+        const url = "https://thesimpsonsquoteapi.glitch.me/quotes";
+
+        const res = await fetch(url);
+
+        const data = await res.json();
+
+        console.log(data[0].quote);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+body{
+ background-color: yellow;   
+}
+
+#form {
+    display: grid;
+    justify-content: center;
+
+    input{
+        border: 1px solid black;
+    }
+    
+    label, input, button {
+        padding: 10px;
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+}
