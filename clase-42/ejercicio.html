@@ -23,9 +23,7 @@
         const url = "https://thesimpsonsquoteapi.glitch.me/quotes";
 
         const res = await fetch(url);
-
         const data = await res.json();
-
         console.log(data[0].quote);
       });
     </script>
