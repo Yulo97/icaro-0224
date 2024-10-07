@@ -1,0 +1,18 @@
+.container {
+    border: solid 1px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 25px;
+    padding: 25px;
+    img {
+        width: 200px;
+        height: 200px;
+    }
+    button {
+        padding: 6px;
+        font-size: larger;
+    }
+}
