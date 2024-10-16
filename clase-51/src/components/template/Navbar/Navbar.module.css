@@ -1,0 +1,15 @@
+.container {
+    width: 100%;
+    background-color: bisque;
+
+    ul{
+        display: flex;
+        justify-content: space-around;
+
+        li{
+            font-size: 22px;
+            list-style: none;
+            padding: 5px;
+        }
+    }
+}
